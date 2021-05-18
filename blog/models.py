@@ -1,9 +1,8 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
 @Author  ：dongli
 @File    ：models.py
-@Date    ：2021/5/12 04:39 
+@Time    ：2021/5/12 04:39
 """
 from django.contrib.auth.models import User
 from django.db import models
