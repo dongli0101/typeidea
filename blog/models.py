@@ -16,6 +16,16 @@ class Category(models.Model):
     :remark:  TODO
     :time:  2021/6/27 22:22
     """
+
+    def __str__(self):
+        """
+        :author:  dongli
+        :title:  增加配置类，调用方显示Category对象实例名称
+        :remark:  TODO
+        :time:  2021/7/4 09:59
+        """
+        return self.name
+
     STATUS_NORMAL = 1
     STATUS_DELETE = 0
     STATUS_ITEMS = (
@@ -44,6 +54,16 @@ class Tag(models.Model):
     :remark:  TODO
     :time:  2021/6/27 22:22
     """
+
+    def __str__(self):
+        """
+        :author:  dongli
+        :title:  增加配置类，调用方显示Tag对象实例名称
+        :remark:  TODO
+        :time:  2021/7/4 09:59
+        """
+        return self.name
+
     STATUS_NORMAL = 1
     STATUS_DELETE = 0
     STATUS_ITEMS = (
@@ -71,6 +91,16 @@ class Post(models.Model):
     :remark:  TODO
     :time:  2021/6/27 22:24
     """
+
+    def __str__(self):
+        """
+        :author:  dongli
+        :title:  增加配置类，调用方显示Category对象实例名称
+        :remark:  TODO
+        :time:  2021/7/4 09:59
+        """
+        return self.title
+
     STATUS_NORMAL = 1
     STATUS_DELETE = 0
     STATUS_DRAFT = 2

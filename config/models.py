@@ -15,6 +15,15 @@ class Link(models.Model):
     :remark:  TODO
     :time:  2021/07/03 09:51
     """
+    def __str__(self):
+        """
+        :author:  dongli
+        :title:  增加配置类，调用方显示Link对象实例名称
+        :remark:  TODO
+        :time:  2021/7/4 10:38
+        """
+        return self.title
+
     STATUS_NORMAL = 1
     STATUS_DELETE = 0
     STATUS_ITEMS = (
@@ -42,6 +51,15 @@ class SideBar(models.Model):
     :remark:  TODO
     :time:  2021/7/03 09:52
     """
+    def __str__(self):
+        """
+        :author:  dongli
+        :title:  增加配置类，调用方显示SideBar对象实例名称
+        :remark:  TODO
+        :time:  2021/7/4 10:38
+        """
+        return self.title
+
     STATUS_SHOW = 1
     STATUS_HIDE = 0
     STATUS_ITEMS = {

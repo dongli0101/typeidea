@@ -15,6 +15,15 @@ class Comment(models.Model):
     :remark:  TODO
     :time:  2021/7/3 09:55
     """
+    def __str__(self):
+        """
+        :author:  dongli
+        :title:  增加配置类，调用方显示Comment对象实例名称
+        :remark:  TODO
+        :time:  2021/7/4 10:38
+        """
+        return self.content
+
     STATUS_NORMAL = 1
     STATUS_DELETE = 0
     STATUS_ITEMS = (
