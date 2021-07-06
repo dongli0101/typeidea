@@ -12,14 +12,14 @@ class Comment(models.Model):
     """
     :author:  dongli
     :title:  comment-评论
-    :remark:  TODO
+    :remark:
     :time:  2021/7/3 09:55
     """
     def __str__(self):
         """
         :author:  dongli
         :title:  增加配置类，调用方显示Comment对象实例名称
-        :remark:  TODO
+        :remark:
         :time:  2021/7/4 10:38
         """
         return self.content

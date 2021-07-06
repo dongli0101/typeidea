@@ -8,12 +8,11 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-# Create your models here.
 class Category(models.Model):
     """
     :author:  dongli
     :title:  blog-分类
-    :remark:  TODO
+    :remark:
     :time:  2021/6/27 22:22
     """
 
@@ -21,7 +20,7 @@ class Category(models.Model):
         """
         :author:  dongli
         :title:  增加配置类，调用方显示Category对象实例名称
-        :remark:  TODO
+        :remark:
         :time:  2021/7/4 09:59
         """
         return self.name
@@ -51,7 +50,7 @@ class Tag(models.Model):
     """
     :author:  dongli
     :title:  blog-标签
-    :remark:  TODO
+    :remark:
     :time:  2021/6/27 22:22
     """
 
@@ -59,7 +58,7 @@ class Tag(models.Model):
         """
         :author:  dongli
         :title:  增加配置类，调用方显示Tag对象实例名称
-        :remark:  TODO
+        :remark:
         :time:  2021/7/4 09:59
         """
         return self.name
@@ -88,7 +87,7 @@ class Post(models.Model):
     """
     :author:  dongli
     :title:  blog-文章
-    :remark:  TODO
+    :remark:
     :time:  2021/6/27 22:24
     """
 
@@ -96,7 +95,7 @@ class Post(models.Model):
         """
         :author:  dongli
         :title:  增加配置类，调用方显示Category对象实例名称
-        :remark:  TODO
+        :remark:
         :time:  2021/7/4 09:59
         """
         return self.title

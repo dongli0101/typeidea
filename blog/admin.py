@@ -16,7 +16,7 @@ class CategoryAdmin(admin.ModelAdmin):
     """
     :author:  dongli
     :title:  CategoryAdmin-分类后台
-    :remark:  TODO
+    :remark:  TODO:obj是什么？
     :time:  2021/7/3 19:47
     """
     list_display = ('name', 'post_count', 'status', 'is_nav', 'owner', 'created_time')
@@ -27,7 +27,8 @@ class CategoryAdmin(admin.ModelAdmin):
         """
         :author:  dongli
         :title:  分类创建者默认当前登录用户
-        :remark:  request.user--当前登录用户
+        :remark:  TODO:super().save_model方法的作用？
+            1.request.user--当前登录用户
         :time:  2021/7/3 20:36
         """
         obj.owner = request.user
@@ -37,7 +38,7 @@ class CategoryAdmin(admin.ModelAdmin):
         """
         :author:  dongli
         :title:  统计分类下的文章数量
-        :remark:  TODO
+        :remark:  TODO：post_set是怎么来的？
         :time:  2021/7/4 10:13
         """
         return obj.post_set.count()
@@ -50,7 +51,7 @@ class TagAdmin(admin.ModelAdmin):
     """
     :author:  dongli
     :title:  TagAdmin-标签后台
-    :remark:  request.user--当前登录用户
+    :remark:
     :time:  2021/7/3 19:52
     """
     list_display = ('name', 'post_count', 'status', 'owner', 'created_time')
@@ -71,7 +72,7 @@ class TagAdmin(admin.ModelAdmin):
         """
         :author:  dongli
         :title:  统计标签下的文章数量
-        :remark:  TODO
+        :remark:
         :time:  2021/7/4 10:16
         """
         return obj.post_set.count()
@@ -83,7 +84,7 @@ class CategoryOwnerFilter(admin.SimpleListFilter):
     """
     :author:  dongli
     :title:  自定义过滤器只展示当前用户分类
-    :remark:  TODO
+    :remark:  TODO：Category.objects是什么？为什么直接就能过滤
     :time:  2021/7/4 17:59
     """
     title = '分类过滤器'
@@ -101,8 +102,15 @@ class CategoryOwnerFilter(admin.SimpleListFilter):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
+    """
+    :author:  dongli
+    :title:  PostAdmin-文章后台
+    :remark:
+    :time:  2021/7/6 20:32
+    """
     # 配置列表展示
     list_display = ['title', 'category', 'status', 'owner', 'created_time', 'operator']
+    # list_display = ['title', 'category', 'status', 'created_time', 'operator']
     # 配置编辑字段链接
     list_display_links = []
     # 配置页面列表过滤器，以下根据分类和标签分组过滤
@@ -116,7 +124,7 @@ class PostAdmin(admin.ModelAdmin):
 
     # 编辑页面：保存/编辑/编辑并新建是否在顶部展示
     # save_on_top = True
-    # 新建/编辑/编辑并新建页面展示字段
+    # 新建/编辑/编辑并新建页面展示字段，元祖内表示显示在同一行，其他的按列显示
     fields = (
         ('category', 'title'),
         # 'category',
@@ -131,7 +139,9 @@ class PostAdmin(admin.ModelAdmin):
         """
         :author:  dongli
         :title:  操作项-编辑
-        :remark:  TODO
+        :remark:
+            1.TODO:format_html的reverse是啥？
+            2.TODO:get_queryset调用原理？
         :time:  2021/7/4 09:36
         """
         return format_html(
@@ -150,3 +160,13 @@ class PostAdmin(admin.ModelAdmin):
         """
         obj.owner = request.user
         return super(PostAdmin, self).save_model(request, obj, form, change)
+
+    def get_queryset(self, request):
+        """
+        :author:  dongli
+        :title:  过滤文章所属者查看
+        :remark:  request.user--当前登录用户
+        :time:  2021/7/6 19:37
+        """
+        owner_filter = super(PostAdmin, self).get_queryset(request)
+        return owner_filter.filter(owner=request.user)

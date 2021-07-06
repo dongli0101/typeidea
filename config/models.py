@@ -12,14 +12,14 @@ class Link(models.Model):
     """
     :author:  dongli
     :title:  config-友链
-    :remark:  TODO
+    :remark:
     :time:  2021/07/03 09:51
     """
     def __str__(self):
         """
         :author:  dongli
         :title:  增加配置类，调用方显示Link对象实例名称
-        :remark:  TODO
+        :remark:
         :time:  2021/7/4 10:38
         """
         return self.title
@@ -48,14 +48,14 @@ class SideBar(models.Model):
     """
     :author:  dongli
     :title:  config-侧栏
-    :remark:  TODO
+    :remark:
     :time:  2021/7/03 09:52
     """
     def __str__(self):
         """
         :author:  dongli
         :title:  增加配置类，调用方显示SideBar对象实例名称
-        :remark:  TODO
+        :remark:
         :time:  2021/7/4 10:38
         """
         return self.title
